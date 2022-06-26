@@ -24,6 +24,10 @@ const ContactForm = () => {
     sendMessage(data);
   };
 
+  if (isSendingMessage) {
+    // TODO: Implement spinner
+  }
+
   return (
     <FormProvider {...formMethods}>
       <form
