@@ -1,0 +1,52 @@
+[
+  {
+    "id": "dave_sharma_wentworth",
+    "firstName": "Dave",
+    "secondName": "Sharma",
+    "party": "Liberal Party of Australia",
+    "area": "Wentworth",
+    "img": "https://amcs.good.do/media/thumbs/uploads/representatives/541ef71/c5db131.100x150_q85_crop_upscale.jpg",
+    "shouldEmail": true,
+    "email": "jan.basson@gmail.com"
+  },
+  {
+    "id": "dominic_wy_kanak_wentworth",
+    "firstName": "Dominic",
+    "secondName": "WY Kanak",
+    "party": "Australian Greens",
+    "area": "Wentworth",
+    "img": "https://amcs.good.do/media/thumbs/uploads/politicians/Dominic_WY_Kanak.300x300_q85_vonOapR.jpg.100x150_q85_crop_upscale.jpg",
+    "shouldEmail": true,
+    "email": "jan.basson@gmail.com"
+  },
+  {
+    "id": "allegra_spender_wentworth",
+    "firstName": "Allegra",
+    "secondName": "Spender",
+    "party": "Independent",
+    "area": "Wentworth",
+    "img": "https://amcs.good.do/media/thumbs/uploads/politicians/Allegra_Spender.300x300_q85_mpSAO29.jpg.100x150_q85_crop_upscale.jpg",
+    "shouldEmail": true,
+    "email": "jan.basson@gmail.com"
+  },
+  {
+    "id": "natalie_dumer_wentworth",
+    "firstName": "Natalie",
+    "secondName": "Dumer",
+    "party": "United Australia Party",
+    "area": "Wentworth",
+    "img": "https://amcs.good.do/media/thumbs/uploads/politicians/Natalie_Dumer.300x300_q85_wQrJ9q4.jpg.100x150_q85_crop_upscale.jpg",
+    "shouldEmail": true,
+    "email": "jan.basson@gmail.com"
+  },
+  {
+    "id": "daniel_lewkovitz_wentworth",
+    "firstName": "Daniel",
+    "secondName": "Lewkovitz",
+    "party": "Liberal Democratic Party",
+    "area": "Wentworth",
+    "img": "https://amcs.good.do/media/thumbs/uploads/politicians/Daniel_Lewkovitz.300x300_q85_HGoOts6.png.100x150_q85_crop_upscale.png",
+    "shouldEmail": true,
+    "email": "jan.basson@gmail.com"
+  }
+]
