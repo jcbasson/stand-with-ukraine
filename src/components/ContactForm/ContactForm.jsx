@@ -18,10 +18,7 @@ const ContactForm = () => {
   );
 
   const onSubmit = (data) => {
-    if (false) {
-      sendMessage(data);
-    }
-    navigate("/thank-you");
+    sendMessage(data);
   };
 
   if (isSendingMessage) {
