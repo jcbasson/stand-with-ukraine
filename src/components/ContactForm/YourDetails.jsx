@@ -31,7 +31,7 @@ const YourDetails = () => {
         placeholder="Email"
         type="email"
         className="form-input input[type='email'] rounded-lg"
-        {...register("email", { required: true })}
+        {...register("senderEmail", { required: true })}
       />
     </div>
   );

@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useForm, FormProvider } from "react-hook-form";
 import { ReactQueryDevtools } from "react-query/devtools";
-import { useSelectCandidates } from "./selectCandidatesHook";
 import YourCandidates from "./YourCandidates";
 import YourDetails from "./YourDetails";
 import YourMessage from "./YourMessage";
@@ -9,7 +8,6 @@ import candidatesData from "./candidates.json";
 import { useSendMessage } from "./useSendMessageHook";
 
 const ContactForm = () => {
-  const [candidates, selectToEmail, unselectToEmail] = useSelectCandidates();
   const navigate = useNavigate();
   const formMethods = useForm({
     defaultValues: { candidates: candidatesData },
@@ -20,8 +18,8 @@ const ContactForm = () => {
   );
 
   const onSubmit = (data) => {
-    console.log("JC data ", data);
-    sendMessage(data);
+    // sendMessage(data);
+    navigate("/thank-you");
   };
 
   if (isSendingMessage) {
@@ -34,11 +32,7 @@ const ContactForm = () => {
         onSubmit={formMethods.handleSubmit(onSubmit)}
         className="flex flex-col gap-12"
       >
-        <YourCandidates
-          candidates={candidates}
-          onSelect={selectToEmail}
-          onDeselect={unselectToEmail}
-        />
+        <YourCandidates />
         <YourDetails />
         <YourMessage />
         <button
