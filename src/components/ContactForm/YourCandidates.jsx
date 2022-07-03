@@ -1,18 +1,18 @@
-import { useState } from "react";
 import { useFormContext, useFieldArray } from "react-hook-form";
 import CandidateCard from "./CandidateCard";
 import { getIsCandidateSelected } from "./getIsCandidateSelected";
+import { useCandidates } from "./useCandidatesHook";
 
 const YourCandidates = () => {
-  const [area, setArea] = useState();
   const { register } = useFormContext();
-  const { fields: candidates, update } = useFieldArray({ name: "candidates" });
+  const {
+    fields: candidates,
+    update,
+    replace,
+  } = useFieldArray({ name: "candidates" });
+  const [fetchCandidates] = useCandidates((candidates) => replace(candidates));
 
-  const areas = candidates.reduce((accum, candidate) => {
-    const { area } = candidate;
-    return accum.includes(area) ? accum : [...accum, area];
-  }, []);
-
+  const areas = ["Wentworth"];
   const isCandidateSelected = getIsCandidateSelected(candidates);
 
   return (
@@ -24,18 +24,18 @@ const YourCandidates = () => {
         name="area"
         {...register("area", { required: true })}
         className="select"
-        onChange={(e) => setArea(e.target.value)}
+        onChange={(e) => fetchCandidates(e.target.value)}
       >
         <option value="">Please select your area</option>
         {areas.map((ar) => {
           return (
-            <option key={ar} value={ar}>
+            <option key={ar} value={ar.toLowerCase()}>
               {ar}
             </option>
           );
         })}
       </select>
-      {area && (
+      {candidates && candidates.length > 0 && (
         <div className="bg-white flex flex-col rounded-xl pr-4 pl-4 pt-4 pb-4">
           <label className="text-lg text-[#84896c] mb-2">
             To the following candidates:
@@ -64,7 +64,7 @@ const YourCandidates = () => {
           </ul>
         </div>
       )}
-      {area && !isCandidateSelected && (
+      {candidates && candidates.length > 0 && !isCandidateSelected && (
         <p className="text-red-500 text-sm">
           Please select at least one candidate to email.
         </p>

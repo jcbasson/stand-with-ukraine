@@ -1,17 +1,18 @@
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { useForm, FormProvider } from "react-hook-form";
+import { FormProvider } from "react-hook-form";
 import { ReactQueryDevtools } from "react-query/devtools";
 import YourCandidates from "./YourCandidates";
 import YourDetails from "./YourDetails";
 import YourMessage from "./YourMessage";
-import candidatesData from "./candidates.json";
 import { useSendMessage } from "./useSendMessageHook";
 
 const ContactForm = () => {
   const navigate = useNavigate();
   const formMethods = useForm({
-    defaultValues: { candidates: candidatesData },
+    defaultValues: { candidates: [] },
   });
+
   const [isSendingMessage, sendMessage] = useSendMessage(
     () => navigate("/thank-you"),
     () => navigate("/error")
