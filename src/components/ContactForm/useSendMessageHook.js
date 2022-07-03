@@ -1,7 +1,7 @@
 import { useMutation } from "react-query";
 import axiosNetlify from "../../utils/axios-netlify";
 
-export const useSendMessage = ({ onSuccessHandler, onErrorHandler }) => {
+export const useSendMessage = (onSuccessHandler, onErrorHandler) => {
   const { isLoading, mutate: sendMessage } = useMutation(
     async ({ candidates, firstName, lastName, email, subject, message }) => {
       return await axiosNetlify.post(`.netlify/functions/sendemail`, {
