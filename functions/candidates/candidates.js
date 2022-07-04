@@ -1,14 +1,15 @@
 exports.handler = async function (event, context, callback) {
   try {
     const { area } = event.queryStringParameters;
-    const candidates = require(`./candidates/${area}.json`);
+    const candidates = require(`./${area}.json`);
+    console.log("JC candidates = ", candidates);
 
     return {
       statusCode: 200,
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
-      body: candidates,
+      body: JSON.stringify(candidates),
     };
   } catch (err) {
     console.log("err: ", err);

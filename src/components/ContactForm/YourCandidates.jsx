@@ -10,8 +10,9 @@ const YourCandidates = () => {
     update,
     replace,
   } = useFieldArray({ name: "candidates" });
-  const [fetchCandidates] = useCandidates((candidates) => replace(candidates));
-
+  const [fetchCandidates] = useCandidates((candidates) => {
+    replace(candidates);
+  });
   const areas = ["Wentworth"];
   const isCandidateSelected = getIsCandidateSelected(candidates);
 

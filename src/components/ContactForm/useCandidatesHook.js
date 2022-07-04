@@ -12,7 +12,7 @@ export const useCandidates = (onSuccessHandler, onErrorHandler) => {
   const { isLoading, mutate } = useMutation(fetchCandidates, {
     onSuccess: (res) => {
       console.log("onSuccess res = ", res);
-      onSuccessHandler(res.data);
+      onSuccessHandler(res);
     },
     onError: (err) => {
       console.log("onError err = ", err);
