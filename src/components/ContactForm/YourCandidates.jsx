@@ -1,10 +1,10 @@
-import { useFormContext, useFieldArray } from "react-hook-form";
+import { useFieldArray } from "react-hook-form";
 import CandidateCard from "./CandidateCard";
+import AreaSelect from "./AreaSelect";
 import { getIsCandidateSelected } from "./getIsCandidateSelected";
 import { useCandidates } from "./useCandidatesHook";
 
 const YourCandidates = () => {
-  const { register } = useFormContext();
   const {
     fields: candidates,
     update,
@@ -13,7 +13,6 @@ const YourCandidates = () => {
   const [fetchCandidates] = useCandidates((candidates) => {
     replace(candidates);
   });
-  const areas = ["Wentworth"];
   const isCandidateSelected = getIsCandidateSelected(candidates);
 
   return (
@@ -21,21 +20,7 @@ const YourCandidates = () => {
       <h2 className="font-bold text-lg text-[#3d65b4] mb-1 ">
         Find your local candidates
       </h2>
-      <select
-        name="area"
-        {...register("area", { required: true })}
-        className="select"
-        onChange={(e) => fetchCandidates(e.target.value)}
-      >
-        <option value="">Please select your area</option>
-        {areas.map((ar) => {
-          return (
-            <option key={ar} value={ar.toLowerCase()}>
-              {ar}
-            </option>
-          );
-        })}
-      </select>
+      <AreaSelect onChangeHandler={fetchCandidates} />
       {candidates && candidates.length > 0 && (
         <div className="bg-white flex flex-col rounded-xl pr-4 pl-4 pt-4 pb-4">
           <label className="text-lg text-[#84896c] mb-2">

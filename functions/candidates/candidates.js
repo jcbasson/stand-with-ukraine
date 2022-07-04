@@ -2,7 +2,6 @@ exports.handler = async function (event, context, callback) {
   try {
     const { area } = event.queryStringParameters;
     const candidates = require(`./${area}.json`);
-    console.log("JC candidates = ", candidates);
 
     return {
       statusCode: 200,
