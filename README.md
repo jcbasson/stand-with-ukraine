@@ -6,11 +6,7 @@ npm install netlify-cli -g
 
 npm i
 
-npm start
-
-## To run test
-
-npm run test
+netlify dev
 
 ## TODOS
 
