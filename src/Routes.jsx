@@ -7,7 +7,7 @@ const paths = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<ContactCandidates />} />
+        <Route path="/generate-message" element={<ContactCandidates />} />
         <Route path="/thank-you" element={<ThankYou />} />
         <Route path="/error" element={<Error />} />
       </Routes>
