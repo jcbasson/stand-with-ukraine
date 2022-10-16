@@ -30,6 +30,20 @@ const YourMessage = () => {
             disabled
           />
         </div>
+        <div className="flex flex  justify-center gap-2">
+          <button
+            type="button"
+            className="bg-[#3d65b4] font-bold text-lg text-white rounded-lg h-12 w-40"
+          >
+            GENERATE
+          </button>
+          <button
+            type="button"
+            className="bg-[#4fe77a] font-bold text-lg text-white rounded-lg h-12 w-20"
+          >
+            COPY
+          </button>
+        </div>
       </div>
     </div>
   );
