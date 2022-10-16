@@ -2,7 +2,7 @@ import { useFetchMessage } from "./useFetchMessage";
 
 const YourMessage = () => {
   const { isSuccess, data: message } = useFetchMessage();
-  console.log("JC message = ", message);
+  console.log("JC message = ", message, isSuccess);
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-4">
