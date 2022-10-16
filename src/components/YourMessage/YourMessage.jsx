@@ -17,33 +17,31 @@ const YourMessage = () => {
             disabled
           />
         </div>
-        <div className="flex flex-col gap-4">
-          <h2 className="font-bold text-lg text-[#3d65b4] mb-1">
-            Your message
-          </h2>
-          <textarea
-            autoComplete="off"
-            name="message"
-            placeholder="Message"
-            type="text"
-            className="h-60 input[type='text'] rounded-lg"
-            disabled
-          />
-        </div>
-        <div className="flex flex  justify-center gap-2">
-          <button
-            type="button"
-            className="bg-[#3d65b4] font-bold text-lg text-white rounded-lg h-12 w-40"
-          >
-            GENERATE
-          </button>
-          <button
-            type="button"
-            className="bg-[#4fe77a] font-bold text-lg text-white rounded-lg h-12 w-20"
-          >
-            COPY
-          </button>
-        </div>
+      </div>
+      <div className="flex flex-col gap-4">
+        <h2 className="font-bold text-lg text-[#3d65b4] mb-1">Your message</h2>
+        <textarea
+          autoComplete="off"
+          name="message"
+          placeholder="Message"
+          type="text"
+          className="h-60 input[type='text'] rounded-lg"
+          disabled
+        />
+      </div>
+      <div className="flex flex  justify-center gap-2">
+        <button
+          type="button"
+          className="bg-[#3d65b4] font-bold text-lg text-white rounded-lg h-12 w-40"
+        >
+          GENERATE
+        </button>
+        <button
+          type="button"
+          className="bg-[#4fe77a] font-bold text-lg text-white rounded-lg h-12 w-20"
+        >
+          COPY
+        </button>
       </div>
     </div>
   );
