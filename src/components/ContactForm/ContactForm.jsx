@@ -4,7 +4,7 @@ import { FormProvider } from "react-hook-form";
 import { ReactQueryDevtools } from "react-query/devtools";
 import YourCandidates from "./YourCandidates";
 import YourDetails from "./YourDetails";
-import YourMessage from "./YourMessage";
+import YourMessage from "../YourMessage/YourMessage";
 import { useSendMessage } from "./useSendMessageHook";
 
 const ContactForm = () => {
