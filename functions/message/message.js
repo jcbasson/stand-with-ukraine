@@ -50,14 +50,25 @@ const getContent = () => {
   return MESSAGES[randomNumber];
 };
 
+const CORS_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers":
+    "Origin, X-Requested-With, Content-Type, Accept",
+};
+
 exports.handler = async function (event, context, callback) {
   try {
+    if (event.httpMethod === "OPTIONS") {
+      return {
+        statusCode: 200,
+        headers: CORS_HEADERS,
+      };
+    }
+
     const content = getContent();
 
     return {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-      },
+      headers: CORS_HEADERS,
       statusCode: 200,
       body: JSON.stringify(content),
     };
@@ -65,9 +76,7 @@ exports.handler = async function (event, context, callback) {
     console.log("err: ", err);
     return {
       statusCode: err.code,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-      },
+      headers: CORS_HEADERS,
       body: JSON.stringify({ msg: err.message }),
     };
   }
