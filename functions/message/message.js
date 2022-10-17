@@ -55,11 +55,11 @@ exports.handler = async function (event, context, callback) {
     const content = getContent();
 
     return {
-      statusCode: 200,
-      body: JSON.stringify(content),
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
+      statusCode: 200,
+      body: JSON.stringify(content),
     };
   } catch (err) {
     console.log("err: ", err);
