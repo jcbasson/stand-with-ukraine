@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useMutation } from "react-query";
 import axiosNetlify from "../../utils/axios-netlify";
 
 const fetchMessage = async (area) => {
@@ -7,5 +7,7 @@ const fetchMessage = async (area) => {
 };
 
 export const useFetchMessage = (onSuccessHandler, onErrorHandler) => {
-  return useQuery("message", fetchMessage);
+  const { isSuccess, data, mutate } = useMutation("message", fetchMessage);
+
+  return [mutate, data, isSuccess];
 };
