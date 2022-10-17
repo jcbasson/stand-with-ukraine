@@ -58,7 +58,7 @@ exports.handler = async function (event, context, callback) {
       statusCode: 200,
       body: JSON.stringify(content),
       headers: {
-        "access-control-allow-origin": "*",
+        "Access-Control-Allow-Origin": "*",
       },
     };
   } catch (err) {
@@ -66,7 +66,7 @@ exports.handler = async function (event, context, callback) {
     return {
       statusCode: err.code,
       headers: {
-        "access-control-allow-origin": "*",
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({ msg: err.message }),
     };
