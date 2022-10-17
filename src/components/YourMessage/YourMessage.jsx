@@ -45,6 +45,7 @@ const YourMessage = () => {
         >
           COPY
         </button>
+        <span></span>
       </div>
     </div>
   );
