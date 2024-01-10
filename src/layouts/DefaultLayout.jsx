@@ -1,6 +1,6 @@
 import BannerImg from "../assets/sydney-banner.jpeg";
 
-const DefaultLayouts = ({ children }) => {
+const DefaultLayout = ({ children }) => {
   return (
     <div
       className="flex flex-col h-full w-full overflow-auto   bg-[length:100%_auto] bg-black bg-no-repeat overflow-auto pb-5 pt-20 md:pt-20 lg:pt-0"
@@ -13,4 +13,4 @@ const DefaultLayouts = ({ children }) => {
   );
 };
 
-export default DefaultLayouts;
+export default DefaultLayout;
