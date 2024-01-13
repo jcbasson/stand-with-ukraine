@@ -1,15 +1,46 @@
-import BannerImg from "../assets/sydney-banner.jpeg";
+import { Image, Box } from "@chakra-ui/react";
+import BannerImg from "../assets/images/sydney-banner.jpeg";
+import StandWithUkraineLogo from "../assets/images/stand-with-ukraine-logo.png";
 
 const DefaultLayout = ({ children }) => {
   return (
-    <div
-      className="flex flex-col h-full w-full overflow-auto   bg-[length:100%_auto] bg-black bg-no-repeat overflow-auto pb-5 pt-20 md:pt-20 lg:pt-0"
-      style={{ backgroundImage: `url(${BannerImg})` }}
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      overflow="auto"
+      height="100%"
+      width="100%"
+      backgroundRepeat="no-repeat"
+      backgroundSize="100% auto"
+      backgroundColor="black"
+      paddingTop="16px"
+      paddingBottom="5px"
+      backgroundImage={`url(${BannerImg})`}
     >
-      <main className="flex flex-col h-full self-center mt-24 height-auto  bg-[#e4edf5] text-[#434344] font-sans leading-normal align ml-4 mr-4 rounded-xl pr-4 pl-4 pt-4 pb-4 ">
+      <Image
+        src={StandWithUkraineLogo}
+        height="300px"
+        width="224px"
+        alt="Add Bank Card"
+        marginRight="24px"
+      />
+
+      <Box
+        as="main"
+        display="flex"
+        flexDirection="column"
+        height="100%"
+        alignSelf="center"
+        marginTop="16px"
+        backgroundColor="#e4edf5"
+        color="#434344"
+        borderRadius="0.75rem"
+        padding="24px 16px"
+      >
         {children}
-      </main>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

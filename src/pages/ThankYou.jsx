@@ -1,4 +1,4 @@
-import UkraineHugImg from "../assets/ukraine-hug.jpeg";
+import UkraineHugImg from "../assets/images/ukraine-hug.jpeg";
 
 const ThankYou = () => {
   return (

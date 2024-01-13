@@ -32,9 +32,6 @@ const ContactForm = () => {
         onSubmit={formMethods.handleSubmit(onSubmit)}
         className="flex flex-col gap-12"
       >
-        <YourCandidates />
-        <YourDetails />
-        <YourMessage />
         <button
           type="submit"
           className="bg-[#3d65b4] font-bold text-lg text-white rounded-lg h-12"

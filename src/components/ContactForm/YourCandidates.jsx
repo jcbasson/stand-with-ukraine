@@ -15,48 +15,49 @@ const YourCandidates = () => {
   });
   const isCandidateSelected = getIsCandidateSelected(candidates);
 
-  return (
-    <div className="flex flex-col gap-6">
-      <h2 className="font-bold text-lg text-[#3d65b4] mb-1 ">
-        Find your local candidates
-      </h2>
-      <AreaSelect onChangeHandler={fetchCandidates} />
-      {candidates && candidates.length > 0 && (
-        <div className="bg-white flex flex-col rounded-xl pr-4 pl-4 pt-4 pb-4">
-          <label className="text-lg text-[#84896c] mb-2">
-            To the following candidates:
-          </label>
-          <ul>
-            {candidates.map((candidate, index) => {
-              const onSelectDeselect = () => {
-                update(index, {
-                  ...candidate,
-                  shouldEmail: !candidate.shouldEmail,
-                });
-              };
-              return (
-                <li
-                  key={candidate.id}
-                  className="pt-10 pb-2 border-b border-[#e3e3df]"
-                >
-                  <CandidateCard
-                    index={index}
-                    {...candidate}
-                    onSelectDeselect={onSelectDeselect}
-                  />
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      )}
-      {candidates && candidates.length > 0 && !isCandidateSelected && (
-        <p className="text-red-500 text-sm">
-          Please select at least one candidate to email.
-        </p>
-      )}
-    </div>
-  );
+  return null;
+  // (
+  //   <div className="flex flex-col gap-6">
+  //     <h2 className="font-bold text-lg text-[#3d65b4] mb-1 ">
+  //       Find your local candidates
+  //     </h2>
+  //     <AreaSelect onChangeHandler={fetchCandidates} />
+  //     {candidates && candidates.length > 0 && (
+  //       <div className="bg-white flex flex-col rounded-xl pr-4 pl-4 pt-4 pb-4">
+  //         <label className="text-lg text-[#84896c] mb-2">
+  //           To the following candidates:
+  //         </label>
+  //         <ul>
+  //           {candidates.map((candidate, index) => {
+  //             const onSelectDeselect = () => {
+  //               update(index, {
+  //                 ...candidate,
+  //                 shouldEmail: !candidate.shouldEmail,
+  //               });
+  //             };
+  //             return (
+  //               <li
+  //                 key={candidate.id}
+  //                 className="pt-10 pb-2 border-b border-[#e3e3df]"
+  //               >
+  //                 <CandidateCard
+  //                   index={index}
+  //                   {...candidate}
+  //                   onSelectDeselect={onSelectDeselect}
+  //                 />
+  //               </li>
+  //             );
+  //           })}
+  //         </ul>
+  //       </div>
+  //     )}
+  //     {candidates && candidates.length > 0 && !isCandidateSelected && (
+  //       <p className="text-red-500 text-sm">
+  //         Please select at least one candidate to email.
+  //       </p>
+  //     )}
+  //   </div>
+  // );
 };
 
 export default YourCandidates;

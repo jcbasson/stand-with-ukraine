@@ -1,16 +1,14 @@
 import Routes from "./Routes";
-import { QueryClient, QueryClientProvider } from "react-query";
+import Setup from "./Setup";
 import DefaultLayout from "./layouts/DefaultLayout";
-
-const queryClient = new QueryClient();
 
 const App = () => {
   return (
-    <QueryClientProvider client={queryClient}>
+    <Setup>
       <DefaultLayout>
         <Routes />
       </DefaultLayout>
-    </QueryClientProvider>
+    </Setup>
   );
 };
 
