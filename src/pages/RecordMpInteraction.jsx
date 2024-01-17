@@ -5,7 +5,7 @@ const RecordMpInteraction = () => {
   return (
     <Box display="flex" flexDirection="column" gap="24px" height="100%">
       <Text as="h1" variant="title">
-        Record you interaction with your local MP
+        Record your local MP interaction
       </Text>
       <MPForm />
     </Box>

@@ -16,7 +16,7 @@ const textStyles = {
       color: "#3d65b4",
       fontFamily: "sans-serif",
       fontWeight: 500,
-      fontSize: "1.25rem",
+      fontSize: "1rem",
     },
   },
 };

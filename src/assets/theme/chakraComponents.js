@@ -1,11 +1,12 @@
 import Text from "./textTheme";
-
-import Input from "./inputTheme";
+import Button from "./buttonTheme";
+import Checkbox from "./checkboxTheme";
 
 const components = {
   Text,
-  Input,
   FormLabel: Text,
+  Button,
+  Checkbox,
 };
 
 export default components;
