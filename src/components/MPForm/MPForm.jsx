@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Button,
   FormLabel,
@@ -7,41 +7,79 @@ import {
   FormControl,
   Checkbox,
   Select,
+  Spinner,
+  useToast,
 } from "@chakra-ui/react";
 import { useForm, Controller } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { usePostMPInteraction } from "../../hooks/usePostMPInteraction";
 import MPs from "../../data/mps.json";
 import Typeahead from "../UI/Typeahead";
 
 const MPForm = () => {
-  const navigate = useNavigate();
   const {
     control,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     defaultValues: {
       hasResponded: false,
       hasMetWith: false,
     },
   });
+  const { isSuccess, isPending, postMPInteraction, isError } =
+    usePostMPInteraction();
+  const toast = useToast();
 
   const onSubmit = ({
     mpName,
     hasResponded,
     hasMetWith,
-    standsWithUKraine,
+    standsWithUkraine,
   }) => {
-    console.log(
-      "JC data mpName, hasResponded, hasMetWith, standsWithUKraine  = ",
+    postMPInteraction({
       mpName,
       hasResponded,
       hasMetWith,
-      standsWithUKraine
-    );
+      standsWithUkraine,
+    });
   };
 
-  return (
+  useEffect(() => {
+    if (isError) {
+      toast({
+        title: `Sorry we are unable to record your interaction now, please try again later.`,
+        status: "error",
+        isClosable: true,
+      });
+    }
+
+    if (isSuccess) {
+      toast({
+        title: `We've recorded your interaction. Thanks a lot!`,
+        status: "success",
+        isClosable: true,
+      });
+      reset({
+        mpName: null,
+        hasResponded: false,
+        hasMetWith: false,
+        standsWithUkraine: null,
+      });
+    }
+  }, [isError, isSuccess, reset]);
+
+  return isPending ? (
+    <Box
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      width="100%"
+      height="100%"
+    >
+      <Spinner color="yellow.500" size="xl" />
+    </Box>
+  ) : (
     <form
       onSubmit={handleSubmit(onSubmit)}
       style={{
@@ -69,8 +107,13 @@ const MPForm = () => {
               validate: (value) =>
                 MPs.includes(value) || "Please select a valid MP",
             }}
-            render={({ field, fieldState: { error } }) => (
-              <Typeahead {...field} suggestions={MPs} error={error} />
+            render={({ field, value, fieldState: { error } }) => (
+              <Typeahead
+                {...field}
+                value={value}
+                suggestions={MPs}
+                error={error}
+              />
             )}
           />
           <FormErrorMessage>
@@ -123,21 +166,22 @@ const MPForm = () => {
         </FormControl>
 
         <FormControl
-          isInvalid={errors.standsWithUKraine}
+          isInvalid={errors.standsWithUkraine}
           style={{ display: "flex", flexDirection: "column", gap: "4px" }}
         >
-          <FormLabel variant="fieldLabel" htmlFor="standsWithUKraine">
+          <FormLabel variant="fieldLabel" htmlFor="standsWithUkraine">
             Do they stand with Ukraine?
           </FormLabel>
           <Controller
-            name="standsWithUKraine"
+            name="standsWithUkraine"
             control={control}
             rules={{ required: "This field is required" }}
-            render={({ field }) => (
+            render={({ field, value }) => (
               <Select
                 {...field}
                 placeholder="Select option"
                 borderColor="#3d65b4"
+                value={value}
               >
                 <option value="Undetermined">Undetermined</option>
                 <option value="Yes">Yes</option>
@@ -146,7 +190,7 @@ const MPForm = () => {
             )}
           />
           <FormErrorMessage>
-            {errors.standsWithUKraine && errors.standsWithUKraine.message}
+            {errors.standsWithUkraine && errors.standsWithUkraine.message}
           </FormErrorMessage>
         </FormControl>
       </Box>
