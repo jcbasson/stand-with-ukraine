@@ -67,7 +67,7 @@ const MPForm = () => {
         standsWithUkraine: null,
       });
     }
-  }, [isError, isSuccess, reset]);
+  }, [isError, isSuccess, reset, toast]);
 
   return isPending ? (
     <Box
