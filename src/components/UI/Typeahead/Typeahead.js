@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Box, List, ListItem } from "@chakra-ui/react";
-import Input from "../Input";
+import { Box, List, ListItem, Input } from "@chakra-ui/react";
 
 const Typeahead = ({ onChange, value, suggestions, error, ...props }) => {
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
@@ -28,16 +27,28 @@ const Typeahead = ({ onChange, value, suggestions, error, ...props }) => {
   };
 
   return (
-    <Box>
+    <Box position="relative">
       <Input
         value={value}
         onChange={handleInputChange}
         onFocus={() => setIsSuggestionsVisible(true)}
-        style={error ? { borderColor: "red", boxShadow: "0 0 0 1px red" } : {}}
+        style={
+          error
+            ? { borderColor: "red", boxShadow: "0 0 0 1px red" }
+            : { border: "1px solid #3d65b4" }
+        }
         {...props}
       />
       {isSuggestionsVisible && (
-        <List boxShadow="md" bg="white" maxH="200px" overflowY="auto">
+        <List
+          position="absolute" // Position list absolutely
+          zIndex="10" // Ensure it stacks on top of other content
+          w="100%" // List width matches the Input width
+          boxShadow="md"
+          bg="white"
+          maxH="200px"
+          overflowY="auto"
+        >
           {filteredSuggestions.map((suggestion, index) => (
             <ListItem
               key={index}

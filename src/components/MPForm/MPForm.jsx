@@ -107,13 +107,8 @@ const MPForm = () => {
               validate: (value) =>
                 MPs.includes(value) || "Please select a valid MP",
             }}
-            render={({ field, value, fieldState: { error } }) => (
-              <Typeahead
-                {...field}
-                value={value}
-                suggestions={MPs}
-                error={error}
-              />
+            render={({ field, fieldState: { error } }) => (
+              <Typeahead {...field} suggestions={MPs} error={error} />
             )}
           />
           <FormErrorMessage>
