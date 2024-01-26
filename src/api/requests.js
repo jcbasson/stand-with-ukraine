@@ -2,7 +2,7 @@ import wretch from "wretch";
 import QueryStringAddon from "wretch/addons/queryString";
 
 const createUrl = (url) => {
-  const baseUrl = "http://localhost:3001/"; // "https://stand-with-ukraine-api.vercel.app/";
+  const baseUrl = "https://stand-with-ukraine-api.vercel.app/";
 
   return `${baseUrl}${url}`;
 };

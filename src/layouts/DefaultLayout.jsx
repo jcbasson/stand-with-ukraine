@@ -14,8 +14,7 @@ const DefaultLayout = ({ children }) => {
       backgroundRepeat="no-repeat"
       backgroundSize="100% auto"
       backgroundColor="black"
-      paddingTop="16px"
-      paddingBottom="5px"
+      padding="16px"
       backgroundImage={`url(${BannerImg})`}
     >
       <Image
@@ -23,20 +22,24 @@ const DefaultLayout = ({ children }) => {
         height="300px"
         width="224px"
         alt="Add Bank Card"
-        marginRight="24px"
       />
 
       <Box
         as="main"
         display="flex"
         flexDirection="column"
-        height="100%"
         alignSelf="center"
         marginTop="16px"
         backgroundColor="#e4edf5"
         color="#434344"
         borderRadius="0.75rem"
         padding="24px 16px"
+        width={{
+          base: "100%", // All breakpoints
+          sm: "80%", // Breakpoints above 'sm'
+          md: "60%", // Breakpoints above 'md'
+          lg: "60%", // Breakpoints above 'lg'
+        }}
       >
         {children}
       </Box>
