@@ -1,6 +1,7 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { Bar } from "react-chartjs-2";
 import "chart.js/auto";
+import ChartColorInfo from "./ChartColorInfo";
 
 const getBarBackgroundColor = (mp) => {
   const { hasResponded, hasMetWith, standsWithUkraine } = mp;
@@ -108,54 +109,7 @@ const InteractionChart = ({ data }) => {
           options={chartOptions}
         />
       </Box>
-      <Box
-        display="flex"
-        gap="16px"
-        alignItems="center"
-        justifyContent="center"
-        width="100%"
-      >
-        <Box display="flex" alignItems="center" gap="8px" height="20px">
-          <Box
-            width="20px"
-            height="100%"
-            backgroundColor="rgba(255, 206, 86, 0.2)"
-          ></Box>
-          <Text variant="tiny">Messaged</Text>
-        </Box>
-        <Box display="flex" alignItems="center" gap="8px" height="20px">
-          <Box
-            width="20px"
-            height="100%"
-            backgroundColor="rgba(61, 101, 180, 0.2)"
-          ></Box>
-          <Text variant="tiny">Met with</Text>
-        </Box>
-        <Box display="flex" alignItems="center" gap="8px" height="20px">
-          <Box
-            width="20px"
-            height="100%"
-            backgroundColor="rgba(52, 229, 235, 0.2)"
-          ></Box>
-          <Text variant="tiny">Responded</Text>
-        </Box>
-        <Box display="flex" alignItems="center" gap="8px" height="20px">
-          <Box
-            width="20px"
-            height="100%"
-            backgroundColor="rgba(52, 235, 122, 0.2)"
-          ></Box>
-          <Text variant="tiny">Stands with Ukraine</Text>
-        </Box>
-        <Box display="flex" alignItems="center" gap="8px" height="20px">
-          <Box
-            width="20px"
-            height="100%"
-            backgroundColor="rgba(219, 4, 4, 0.2)"
-          ></Box>
-          <Text variant="tiny">Does not stand with Ukraine</Text>
-        </Box>
-      </Box>
+      <ChartColorInfo />
     </Box>
   );
 };
