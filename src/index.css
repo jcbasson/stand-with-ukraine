@@ -6,7 +6,7 @@ html,
 body {
   height: 100vh;
   background-color: #0000;
-  overflow: scroll;
+  overflow: auto;
 }
 
 #root {
