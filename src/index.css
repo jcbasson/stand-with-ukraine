@@ -6,11 +6,11 @@ html,
 body {
   height: 100vh;
   background-color: #0000;
-  overflow: auto;
+  overscroll-behavior: contain;
 }
 
 #root {
   height: 100%;
-  overflow: scroll;
+  overscroll-behavior: contain;
   background-color: #0000;
 }
