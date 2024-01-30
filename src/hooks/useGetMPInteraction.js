@@ -4,7 +4,7 @@ import { get } from "../api/requests";
 export const useGetMPInteraction = () => {
   const url = "mp-interaction-data";
 
-  const { data, isSuccess } = useQuery({
+  const { data, isSuccess, refetch } = useQuery({
     queryKey: [url],
     queryFn: async () => {
       return await get(url);
@@ -15,5 +15,6 @@ export const useGetMPInteraction = () => {
   return {
     isSuccess,
     data,
+    fetchMPs: refetch,
   };
 };

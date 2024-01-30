@@ -15,7 +15,7 @@ import { usePostMPInteraction } from "../../hooks/usePostMPInteraction";
 import MPs from "../../data/mps.json";
 import Typeahead from "../UI/Typeahead";
 
-const MPForm = () => {
+const MPForm = ({ onSubmitSuccess }) => {
   const {
     control,
     handleSubmit,
@@ -66,6 +66,8 @@ const MPForm = () => {
         hasMetWith: false,
         standsWithUkraine: null,
       });
+
+      onSubmitSuccess();
     }
   }, [isError, isSuccess, reset, toast]);
 
