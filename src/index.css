@@ -9,10 +9,6 @@ body {
   overflow: scroll;
 }
 
-main {
-  overflow: scroll;
-}
-
 #root {
   height: 100%;
   overflow: auto;
