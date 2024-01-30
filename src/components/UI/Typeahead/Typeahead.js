@@ -7,9 +7,8 @@ const Typeahead = ({ onChange, value, suggestions, error, ...props }) => {
   const [isSuggestionsVisible, setIsSuggestionsVisible] = useState(false);
 
   useEffect(() => {
-    // Update the internal state when the external value changes
     setInputValue(value || "");
-  }, [value]);
+  }, [value, setInputValue]);
 
   const handleInputChange = (event) => {
     const newValue = event.target.value;
