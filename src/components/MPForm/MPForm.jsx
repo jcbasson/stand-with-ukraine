@@ -69,7 +69,7 @@ const MPForm = ({ onSubmitSuccess }) => {
 
       onSubmitSuccess();
     }
-  }, [isError, isSuccess, reset, toast]);
+  }, [isError, isSuccess, reset, toast, onSubmitSuccess]);
 
   return isPending ? (
     <Box
